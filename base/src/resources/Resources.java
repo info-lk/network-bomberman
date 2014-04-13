@@ -15,8 +15,10 @@ public class Resources {
     public PImage grass;
     public PImage cobblestone;
     public PImage explosion;
+    public PImage egg;
     public PImage beam_horiz;
     public PImage beam_vert;
+    public PImage skull_creeper;
 
 
     public Resources(PApplet canvas) {
@@ -27,5 +29,7 @@ public class Resources {
         this.explosion = canvas.loadImage("resources/explosion.png");
         this.beam_horiz = canvas.loadImage("resources/strahl.horiz.png");
         this.beam_vert = canvas.loadImage("resources/strahl.vert.png");
+        this.egg = canvas.loadImage("resources/egg.png");
+        this.skull_creeper = canvas.loadImage("resources/skull_creeper.png");
     }
 }

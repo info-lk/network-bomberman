@@ -1,10 +1,6 @@
-package graphics;
+package game;
 
 import processing.core.*;
-import map.Map;
-import resources.Resources;
-
-import java.awt.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,8 +9,7 @@ import java.awt.*;
  * Time: 16:12
  */
 public class MainApplet extends PApplet {
-    Map map;
-    Resources res;
+    Controller cont;
     int width;
     int height;
 
@@ -22,20 +17,23 @@ public class MainApplet extends PApplet {
         super();
         this.width = 512;
         this.height = 512;
-        res = new Resources(this);
+        cont = new Controller(this);
     }
 
     public void setup() {
         size(width, height);
-
-        map = new Map(this, res, 16, 16, 10, 70);
+        cont.setup();
     }
 
     public void draw() {
-        map.redrawTiles(false);
+        cont.draw();
+    }
 
-        if (keyPressed) {
-            map.getRandomTile().destroyTile();
-        }
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }

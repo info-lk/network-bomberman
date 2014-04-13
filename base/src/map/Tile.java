@@ -14,8 +14,11 @@ public class Tile {
     private boolean isDestructing = false;
     private int currentDestruction = 0;
     private Player player;
+    private int x, y = 0;
 
-    public Tile(boolean destructable, boolean passable) {
+    public Tile(int x, int y, boolean destructable, boolean passable) {
+        this.x = x;
+        this.y = y;
         this.destructable = destructable;
         this.passable = passable;
         hasPlayer = false;
@@ -36,6 +39,10 @@ public class Tile {
 
     public boolean isDestructableWall() {
         return destructable & !passable;
+    }
+
+    public boolean isPassable() {
+        return passable;
     }
 
     public boolean hasPlayer() {
@@ -78,7 +85,14 @@ public class Tile {
             } else {
                 needsRedraw = false;
             }
-
         }
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

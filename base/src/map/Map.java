@@ -11,7 +11,7 @@ public class Map {
     private int height;
     private float blockWidth;
     private float blockHeight;
-    public Tile[][] tile;
+    private Tile[][] tile;
 
     private double wallChance = 10;
     private double destructableWallChance = 15;
@@ -53,9 +53,9 @@ public class Map {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1) { //Wall
-                    tile[x][y] = new Tile(false, false);
+                    tile[x][y] = new Tile(x, y, false, false);
                 } else {
-                    tile[x][y] = generateRandomTile();
+                    tile[x][y] = generateRandomTile(x, y);
                 }
             }
             System.out.println();
@@ -72,14 +72,14 @@ public class Map {
         canvas.smooth();
     }
 
-    private Tile generateRandomTile() {
+    private Tile generateRandomTile(int x, int y) {
         int random = r.nextInt(100);
         if (random <= wallChance) {
-            return new Tile(false, false); // Wall
+            return new Tile(x, y, false, false); // Wall
         } else if (random <= destructableWallChance) {
-            return new Tile(true, false); // Destructable Wall
+            return new Tile(x, y, true, false); // Destructable Wall
         } else {
-            return new Tile(false, true); // Ground
+            return new Tile(x, y, false, true); // Ground
         }
     }
 
@@ -88,5 +88,17 @@ public class Map {
         int y = r.nextInt(height - 2) + 1;
 
         return tile[x][y];
+    }
+
+    public Tile getTile(int x, int y) {
+        return tile[x][y];
+    }
+
+    public float getBlockWidth() {
+        return blockWidth;
+    }
+
+    public float getBlockHeight() {
+        return blockHeight;
     }
 }

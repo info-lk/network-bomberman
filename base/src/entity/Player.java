@@ -1,8 +1,11 @@
 package entity;
 
 import item.Item;
+import processing.core.PApplet;
+import resources.Resources;
 
 public class Player {
+    public static enum DIRECTION {UP, DOWN, LEFT, RIGHT}
 
     private double xPosition;
     private double yPosition;
@@ -13,8 +16,10 @@ public class Player {
 
     private boolean hasShield;
 
+    private PApplet canvas;
+    private Resources res;
 
-    public Player() {
+    public Player(PApplet canvas, Resources res) {
         xPosition = -1D;
         yPosition = -1D;
 
@@ -22,6 +27,9 @@ public class Player {
         swiftness = 1D;
         bombs = 1;
         hasShield = false;
+
+        this.canvas = canvas;
+        this.res = res;
     }
 
     public void hurt(double damage) {
@@ -56,4 +64,33 @@ public class Player {
         return yPosition;
     }
 
+    public void setxPosition(double xPosition) {
+        this.xPosition = xPosition;
+    }
+
+    public void setyPosition(double yPosition) {
+        this.yPosition = yPosition;
+    }
+
+    public void move(DIRECTION dir) {
+        switch (dir) {
+            case DOWN:
+                this.yPosition += this.swiftness;
+                break;
+            case UP:
+                this.yPosition -= this.swiftness;
+                break;
+            case RIGHT:
+                this.xPosition += this.swiftness;
+                break;
+            case LEFT:
+                this.xPosition -= this.swiftness;
+        }
+    }
+
+    public void draw(float width, float height) {
+        canvas.noSmooth();
+        canvas.image(res.skull_creeper, (float) this.xPosition, (float) this.yPosition, width, height);
+        canvas.smooth();
+    }
 }
