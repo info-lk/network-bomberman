@@ -16,7 +16,7 @@ import java.util.List;
 public class Effects {
     PApplet canvas;
     Resources res;
-    ArrayList<Drawable> effects = new ArrayList<>();
+    ArrayList<Drawable> effects = new ArrayList<Drawable>();
 
     public Effects(PApplet canvas, Resources res) {
         this.canvas = canvas;

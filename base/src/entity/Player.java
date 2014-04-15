@@ -5,6 +5,14 @@ import processing.core.PApplet;
 import resources.Resources;
 
 public class Player {
+
+
+    private DIRECTION lookDirection;
+    private int bombsCurrentlyLaid;
+
+
+
+
     public static enum DIRECTION {UP, DOWN, LEFT, RIGHT}
 
     private double xPosition;
@@ -27,6 +35,7 @@ public class Player {
         swiftness = 1D;
         bombs = 1;
         hasShield = false;
+        lookDirection = DIRECTION.DOWN;
 
         this.canvas = canvas;
         this.res = res;
@@ -64,12 +73,24 @@ public class Player {
         return yPosition;
     }
 
+    public boolean canLayBomb() {
+        return (bombs - bombsCurrentlyLaid > 0);
+    }
+
     public void setxPosition(double xPosition) {
         this.xPosition = xPosition;
     }
 
     public void setyPosition(double yPosition) {
         this.yPosition = yPosition;
+    }
+
+    public void setHasShield(boolean hasShield) {
+        this.hasShield = hasShield;
+    }
+
+    public void setLookDirection(DIRECTION lookDirection) {
+        this.lookDirection = lookDirection;
     }
 
     public void move(DIRECTION dir) {
@@ -86,11 +107,22 @@ public class Player {
             case LEFT:
                 this.xPosition -= this.swiftness;
         }
+        lookDirection = dir;
     }
 
     public void draw(float width, float height) {
         canvas.noSmooth();
         canvas.image(res.skull_creeper, (float) this.xPosition, (float) this.yPosition, width, height);
         canvas.smooth();
+    }
+
+    public void layBomb() {
+        if(canLayBomb()) {
+            bombsCurrentlyLaid++;
+        }
+    }
+
+    public void bombExploded() {
+        bombsCurrentlyLaid--;
     }
 }

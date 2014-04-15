@@ -1,15 +1,21 @@
 package game;
 
+import com.esotericsoftware.kryonet.Client;
+import com.esotericsoftware.kryonet.Connection;
+import com.esotericsoftware.kryonet.Listener;
 import entity.Bomb;
 import entity.Player;
 import graphics.Effects;
 import graphics.Explosion;
 import map.Map;
 import map.Tile;
+import network.ClientVariables;
+import network.ServerVariables;
 import processing.core.PApplet;
 import resources.Resources;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,6 +24,7 @@ import java.awt.event.KeyEvent;
  * Time: 15:35
  */
 public class Controller {
+    Client client;
     PApplet canvas;
     Map map;
     Resources res;
@@ -29,11 +36,74 @@ public class Controller {
         this.canvas = canvas;
         res = new Resources(canvas);
         effects = new Effects(canvas, res);
+        client = new Client();
     }
 
     public void setup() {
-        map = new Map(canvas, res, 16, 16, 0, 50);
+        client.getKryo().register(ServerVariables.class);
+        client.getKryo().register(ClientVariables.class);
+        map = new Map(canvas, res, 16, 16, 0, 50); //Nur zum testen nötig
         bomb = new Bomb(canvas, res, 64, 64, map.getBlockWidth(), map.getBlockHeight());
+        try {
+            client.connect(5000,"127.0.0.1",22222,11111);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        client.addListener(new Listener() {
+            public void received(Connection connection, Object object) {
+                if(object instanceof ServerVariables) {
+                    ServerVariables sV = (ServerVariables) object;
+                    if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.MAP)) {
+                        map = sV.map;
+                    }
+                    else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYER)) {
+                        Player enemy = new Player(canvas,res);
+                        enemy.setxPosition(sV.player.xPosition);
+                        enemy.setyPosition(sV.player.yPosition);
+                        enemy.setHasShield(sV.player.hasShield);
+                        enemy.setLookDirection(sV.player.lookDirection);
+                        enemy.draw(map.getBlockWidth(),map.getBlockHeight());
+                    }
+                    else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB)) {
+                        bomb.setXPos((float) sV.bomb.layBombAtX * map.getBlockWidth());
+                        bomb.setYPos((float) sV.bomb.layBombAtY * map.getBlockHeight());
+                        bomb.draw();
+                    }
+                    else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB_PLAYER)) {
+                        Player enemy = new Player(canvas,res);
+                        enemy.setxPosition(sV.player.xPosition);
+                        enemy.setyPosition(sV.player.yPosition);
+                        enemy.setHasShield(sV.player.hasShield);
+                        enemy.setLookDirection(sV.player.lookDirection);
+                        enemy.draw(map.getBlockWidth(), map.getBlockHeight());
+
+                        bomb.setXPos((float) sV.bomb.layBombAtX * map.getBlockWidth());
+                        bomb.setYPos((float) sV.bomb.layBombAtY * map.getBlockHeight());
+                        bomb.draw();
+                    }
+                    else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.COMMAND)) {
+                        switch(sV.command) {
+                            case -1:
+                                break;
+                            case 0: //pause
+                                canvas.pause();
+                                System.out.println("PAUSE");
+                                break;
+                            case 1:
+                                System.out.println("You were kicked from game");
+                                client.close();
+                                System.exit(1);
+                                break;
+                            case 2:
+                                canvas.resume();
+                                break;
+                            default :
+                                System.out.println("Unknown server command");
+                        }
+                    }
+                }
+            }
+        });
         player = new Player(canvas, res);
         player.setxPosition(map.getBlockWidth());
         player.setyPosition(map.getBlockHeight());
@@ -60,46 +130,68 @@ public class Controller {
     }
 
     public void keyEvent() {
-        int xMin = (int) Math.floor((player.getXPosition() + (0.25 * map.getBlockWidth())) / map.getBlockWidth());
-        int yMin = (int) Math.floor((player.getYPosition() + (0.25 * map.getBlockHeight())) / map.getBlockHeight());
+        int xMin = (int) Math.ceil(player.getXPosition());
+        int xMax = (int) Math.ceil(player.getXPosition() + 0.8);
+        //int xMin = (int) Math.floor((player.getXPosition() + (0.25 * map.getBlockWidth())) / map.getBlockWidth());
+        //int yMin = (int) Math.floor((player.getYPosition() + (0.25 * map.getBlockHeight())) / map.getBlockHeight());
 
-        int xMax = (int) Math.floor((player.getXPosition() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
-        int yMax = (int) Math.floor((player.getYPosition() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
+        int yMin = (int) Math.ceil(player.getYPosition());
+        int yMax = (int) Math.ceil(player.getYPosition() + 0.8);
+        //int xMax = (int) Math.floor((player.getXPosition() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
+        //int yMax = (int) Math.floor((player.getYPosition() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
 
         System.out.println("xMin: " + xMin + "; yMin: " + yMin + "; xMax: " + xMax + "; yMax: " + yMax);
 
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:
-                if (map.getTile(xMin, yMin).isPassable()) {
+                if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMax,yMin).isPassable()) {
                     player.move(Player.DIRECTION.UP);
-                } else {
-                    player.setyPosition((yMax) * map.getBlockHeight());
                 }
                 break;
             case KeyEvent.VK_DOWN:
-                if (map.getTile(xMax, yMax).isPassable()) {
+                if (map.getTile(xMin, yMax).isPassable() && map.getTile(xMax,yMax).isPassable()) {
                     player.move(Player.DIRECTION.DOWN);
-                } else {
-                    player.setyPosition((yMin) * map.getBlockHeight());
                 }
                 break;
             case KeyEvent.VK_LEFT:
-                if (map.getTile(xMin, yMin).isPassable()) {
+                if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMin,yMax).isPassable()) {
                     player.move(Player.DIRECTION.LEFT);
-                } else {
-                    player.setxPosition((xMax) * map.getBlockHeight());
                 }
                 break;
             case KeyEvent.VK_RIGHT:
-                if (map.getTile(xMax, yMax).isPassable()) {
+                if (map.getTile(xMax, yMin).isPassable() && map.getTile(xMax,yMax).isPassable()) {
                     player.move(Player.DIRECTION.RIGHT);
-                } else {
-                    player.setxPosition((xMin) * map.getBlockHeight());
                 }
                 break;
+            case KeyEvent.VK_SPACE:
+                if(player.canLayBomb()) {
+                    int xPos = Math.round(Math.round(player.getXPosition()));
+                    int yPos = Math.round(Math.round(player.getYPosition()));
+                    player.layBomb();
+                    new Bomb(canvas, res, (float) xPos * map.getBlockWidth(), (float) yPos * map.getBlockHeight(), map.getBlockWidth(), map.getBlockHeight()).draw();
+                    Tile[] t = new Tile[5];
+                    t[0] = map.getTile(xPos, yPos); //Eigentlich nicht nötig?
+                    t[1] = map.getTile(xPos, yPos - 1);
+                    t[2] = map.getTile(xPos, yPos + 1);
+                    t[3] = map.getTile(xPos - 1, yPos);
+                    t[4] = map.getTile(xPos - 1, yPos);
+
+                    for(Tile tile : t) {
+                        tile.destroyTile();
+                        if(tile.hasPlayer()) {
+                            tile.getPlayer().hurt(1);
+                        }
+                    }
+                    player.bombExploded();
+                }
+                break;
+            case KeyEvent.VK_ESCAPE:
+                //openMenu();
+                break;
+
             default:
-                player.setxPosition(map.getBlockWidth());
-                player.setyPosition(map.getBlockHeight());
+                player.setxPosition(map.getBlockWidth()*1);
+                player.setyPosition(map.getBlockHeight()*1);
                 break;
         }
     }

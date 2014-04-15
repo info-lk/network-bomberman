@@ -29,4 +29,12 @@ public class Bomb {
         canvas.image(res.egg, x - tmpWidthPulse / 2 + tileWidth / 2, y - tmpHeightPulse / 2 + tileHeight / 2, tmpWidthPulse, tmpHeightPulse);
         canvas.smooth();
     }
+
+    public void setXPos(float XPos) {
+        this.x = XPos;
+    }
+
+    public void setYPos(float YPos) {
+        this.y = YPos;
+    }
 }
