@@ -11,7 +11,6 @@ import java.awt.*;
 public class MainGUI extends Frame {
     public MainGUI(int width, int height) {
         super("Networked Bomberman");
-
         MainApplet app = new MainApplet();
 
         add(app);
