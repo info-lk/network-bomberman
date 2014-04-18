@@ -4,3 +4,4 @@
 *.iws
 
 *.class
+.idea/workspace.xml

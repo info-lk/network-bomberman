@@ -29,8 +29,8 @@ public class Effects {
     }
 
     public void drawEffects() {
-        for (Drawable effect : effects) {
-            effect.draw();
+        for(int i = 0; i < effects.size(); i++) {
+            effects.get(i).draw();
         }
     }
 }

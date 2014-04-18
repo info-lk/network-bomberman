@@ -43,7 +43,6 @@ public class Controller {
         client.getKryo().register(ServerVariables.class);
         client.getKryo().register(ClientVariables.class);
         map = new Map(canvas, res, 16, 16, 0, 50); //Nur zum testen nötig
-        bomb = new Bomb(canvas, res, 64, 64, map.getBlockWidth(), map.getBlockHeight());
 
         try {
             client.connect(5000,"127.0.0.1",22222,11111);
@@ -142,7 +141,9 @@ public class Controller {
         int xMax = (int) Math.floor((player.getXPosition() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
         int yMax = (int) Math.floor((player.getYPosition() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
 
-        System.out.println("xMin: " + xMin + "; yMin: " + yMin + "; xMax: " + xMax + "; yMax: " + yMax);
+        canvas.stroke(255);
+        canvas.fill(canvas.color(255, 0, 0));
+        canvas.rect(xMin, yMin, xMax-xMin, yMax-yMin);
 
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:
@@ -172,21 +173,7 @@ public class Controller {
             case KeyEvent.VK_ALT:
                 if(player.canLayBomb()) {
                     player.layBomb();
-                    new Bomb(canvas, res, xMin * map.getBlockWidth(), yMin * map.getBlockHeight(), map.getBlockWidth(), map.getBlockHeight()).draw();
-                    Tile[] t = new Tile[5];
-                    t[0] = map.getTile(xMin, yMin); //Eigentlich nicht nötig?
-                    t[1] = map.getTile(xMin, yMin - 1);
-                    t[2] = map.getTile(xMin, yMin + 1);
-                    t[3] = map.getTile(xMin - 1, yMin);
-                    t[4] = map.getTile(xMin + 1, yMin);
-
-                    for(Tile tile : t) {
-                        tile.destroyTile();
-                        if(tile.hasPlayer()) {
-                            tile.getPlayer().hurt(1);
-                        }
-                    }
-                    player.bombExploded();
+                    effects.addEffect(new Bomb(player, map, effects, map.getBlockWidth(), map.getBlockHeight(), xMin, yMin), xMin * map.getBlockWidth(), yMin * map.getBlockHeight());
                 }
                 break;
 
