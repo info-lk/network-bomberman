@@ -1,2 +1,6 @@
-*.class
+# Intellij
 .idea/
+*.iml
+*.iws
+
+*.class
