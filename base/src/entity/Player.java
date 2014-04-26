@@ -5,13 +5,8 @@ import processing.core.PApplet;
 import resources.Resources;
 
 public class Player {
-
-
     private DIRECTION lookDirection;
     private int bombsCurrentlyLaid;
-
-
-
 
     public static enum DIRECTION {UP, DOWN, LEFT, RIGHT}
 

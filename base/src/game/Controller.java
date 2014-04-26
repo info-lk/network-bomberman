@@ -143,7 +143,7 @@ public class Controller {
 
         canvas.stroke(255);
         canvas.fill(canvas.color(255, 0, 0));
-        canvas.rect(xMin, yMin, xMax-xMin, yMax-yMin);
+        canvas.rect((float)(player.getXPosition() + (0.25 * map.getBlockWidth())), (float)(player.getYPosition() + (0.25 * map.getBlockHeight())), 0.5f * map.getBlockWidth(), 0.5f * map.getBlockHeight());
 
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:

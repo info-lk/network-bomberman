@@ -9,7 +9,7 @@ import resources.Resources;
  * Date: 26.03.14
  * Time: 16:15
  */
-public class Explosion implements Drawable {
+public class ExplosionBeam implements Drawable {
     private int progress = 0;
     private PApplet canvas;
     private Resources res;
@@ -17,10 +17,13 @@ public class Explosion implements Drawable {
     private float y;
     private float width;
     private float height;
+    public enum Orientation {HORIZONTAL, VERTICAL}
+    private Orientation orientation;
 
-    public Explosion(float blockWidth, float blockHeight) {
-        this.width = blockWidth;
-        this.height = blockHeight;
+    public ExplosionBeam(float width, float height, Orientation orientation) {
+        this.width = width;
+        this.height = height;
+        this.orientation = orientation;
     }
 
     @Override
@@ -37,7 +40,11 @@ public class Explosion implements Drawable {
 
         if (progress >= 50 && progress <= 200) {
             canvas.smooth();
-            canvas.blend(res.explosion, 0, 0, 256, 256, (int) x - (int) (width * 2), (int) y - (int) (height * 2), (int) width * 4, (int) height * 4, PApplet.DODGE);
+            if(this.orientation == Orientation.VERTICAL){
+                canvas.blend(res.beam_vert, 0, 0, 16, 1, (int) x, (int) y, (int) width, (int) height, PApplet.DODGE);
+            }else{
+                canvas.blend(res.beam_horiz, 0, 0, 1, 16, (int) x, (int) y, (int) width, (int) height, PApplet.DODGE);
+            }
             canvas.noSmooth();
         }
     }

@@ -13,6 +13,4 @@ public interface Drawable {
     public void setup(PApplet canvas, Resources res, float x, float y);
 
     public void draw();
-
-    public boolean isRemovable();
 }
