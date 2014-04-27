@@ -15,6 +15,10 @@ public class Tile {
     private Player player;
     private int x, y = 0;
 
+    public Tile(){
+
+    }
+
     public Tile(int x, int y, boolean destructable, boolean passable) {
         this.x = x;
         this.y = y;

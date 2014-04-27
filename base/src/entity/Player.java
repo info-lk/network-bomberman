@@ -38,7 +38,13 @@ public class Player {
 
     public void hurt(double damage) {
         if (!hasShield) health -= damage;
-        if(health < 0) health = 0;
+        if(health <= 0) {
+            health = 0;
+            res.sound_die.play();
+        }else{
+            res.sound_hurt.play();
+        }
+
     }
 
     public void collectItem(Item item) {
@@ -111,6 +117,12 @@ public class Player {
         if(health <= 0) canvas.tint(255, 127);
         canvas.image(res.skull_creeper, (float) this.xPosition, (float) this.yPosition, width, height);
         canvas.smooth();
+
+        canvas.noStroke();
+        canvas.fill(canvas.color(0xFF, 0, 0));
+        canvas.rect((float) this.xPosition, (float) this.yPosition, width, 4);
+        canvas.fill(canvas.color(0, 0xFF, 0));
+        canvas.rect((float) this.xPosition, (float) this.yPosition, (float) (health*width/100), 4);
     }
 
     public void layBomb() {

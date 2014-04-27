@@ -11,6 +11,10 @@ public class ClientVariables {
     public double bombXPos, bombYPos;
     public int kind;
 
+    public ClientVariables(){
+
+    }
+
     public ClientVariables(double playerXPos,double playerYPos, boolean hasShield) {
         this.playerXPos = playerXPos;
         this.playerYPos = playerYPos;

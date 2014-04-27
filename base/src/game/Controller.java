@@ -9,22 +9,20 @@ import graphics.Effects;
 import graphics.Explosion;
 import info.DeathScreen;
 import info.InformationBar;
+import info.LobbyScreen;
 import map.Map;
 import map.Tile;
 import network.ClientVariables;
+import network.LobbyVariables;
 import network.ServerVariables;
 import processing.core.PApplet;
 import resources.Resources;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.net.InetAddress;
 
-/**
- * Created with IntelliJ IDEA.
- * User: leobernard
- * Date: 26.03.14
- * Time: 15:35
- */
 class Controller {
     private Client client;
     private PApplet canvas;
@@ -35,29 +33,60 @@ class Controller {
     private Player player;
     private InformationBar infoBar;
     private DeathScreen deathScreen;
+    private LobbyScreen lobbyScreen;
 
     public Controller(PApplet canvas) {
         this.canvas = canvas;
         res = new Resources(canvas);
         effects = new Effects(canvas, res);
         client = new Client();
-
     }
 
     public void setup() {
+        System.out.println("setup");
+        lobbyScreen = new LobbyScreen(canvas, res, canvas.width, canvas.height);
+
+        client.start();
         client.getKryo().register(ServerVariables.class);
+        client.getKryo().register(ServerVariables.CURRENT_INFORMATION.class);
         client.getKryo().register(ClientVariables.class);
-        map = new Map(canvas, res, 16, 16, 0, 50); //Nur zum testen nötig
+        client.getKryo().register(LobbyVariables.class);
+        client.getKryo().register(network.Map.class);
+        client.getKryo().register(int[][].class);
+        client.getKryo().register(int[].class);
+        map = new Map(canvas, res, 32, 32, 0, 20);
+
+        player = new Player(canvas, res);
+        player.setxPosition(map.getBlockWidth());
+        player.setyPosition(map.getBlockHeight());
+
+        infoBar = new InformationBar(canvas, player, canvas.width);
+        deathScreen = new DeathScreen(canvas, canvas.width, canvas.height);
 
         try {
-            client.connect(5000,"127.0.0.1",11111,22222);
+            lobbyScreen.setVisible(true);
+            lobbyScreen.setText("Searching for the server...");
+            String serveraddr = JOptionPane.showInputDialog(null, "Please enter the server's IP address", "Connect to server", JOptionPane.QUESTION_MESSAGE);
+
+            if(serveraddr == null){
+                lobbyScreen.setVisible(false);
+                return;
+            }
+
+            System.out.println("Connecting to Host...");
+            lobbyScreen.setText("Connecting to server at " + serveraddr);
+            client.connect(5000, serveraddr, 11111, 22222);
 
             client.addListener(new Listener() {
                 public void received(Connection connection, Object object) {
                     if(object instanceof ServerVariables) {
                         ServerVariables sV = (ServerVariables) object;
                         if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.MAP)) {
-                            map = sV.map;
+                            System.out.println(sV.map);
+                            map = new Map(canvas, res, sV.map);
+                            lobbyScreen.setVisible(false);
+                            player.setyPosition(32);
+                            player.setxPosition(32);
                         }
                         else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYER)) {
                             Player enemy = new Player(canvas,res);
@@ -104,19 +133,23 @@ class Controller {
                                     System.out.println("Unknown server command");
                             }
                         }
+                    }else if(object instanceof LobbyVariables){
+                        LobbyVariables lobby = (LobbyVariables) object;
+
+                        if(!lobby.error && !lobby.isReady){
+                            lobbyScreen.setText("Waiting in the lobby\n(" + (30 - lobby.seconds) + " sec. left).\n\nPlayers: " + lobby.connectedClients);
+                        }else if(lobby.error){
+                            lobbyScreen.setText("Server-side Error:\n" + lobby.errorMsg);
+                        }else if(lobby.isReady){
+                            lobbyScreen.setText("Waiting for the map...");
+                        }
                     }
                 }
             });
         } catch (IOException e) {
+            lobbyScreen.setText("Something went wrong.\nPlease try again.");
             e.printStackTrace();
         }
-
-        player = new Player(canvas, res);
-        player.setxPosition(map.getBlockWidth());
-        player.setyPosition(map.getBlockHeight());
-
-        infoBar = new InformationBar(canvas, player, canvas.width);
-        deathScreen = new DeathScreen(canvas, canvas.width, canvas.height);
     }
 
     public void draw() {
@@ -124,22 +157,14 @@ class Controller {
         player.draw(map.getBlockWidth(), map.getBlockHeight());
         effects.drawEffects();
         infoBar.draw();
+        lobbyScreen.draw();
 
         if(player.getHealth() <= 0) {
             deathScreen.draw();
-        }else{
+        }else if(!lobbyScreen.isVisible()){
             if (canvas.keyPressed) {
                 keyEvent();
             }
-        }
-
-        if (canvas.mousePressed) {
-            int x = (int) Math.floor(canvas.mouseX / map.getBlockWidth());
-            int y = (int) Math.floor(canvas.mouseY / map.getBlockHeight());
-
-            Tile t = map.getTile(x, y);
-            effects.addEffect(new Explosion(map.getBlockWidth(), map.getBlockHeight()), (float) (t.getX() + 0.5) * map.getBlockWidth(), (float) (t.getY() + 0.5) * map.getBlockHeight());
-            t.destroyTile();
         }
     }
 
@@ -152,10 +177,6 @@ class Controller {
 
         map.resetPlayerBooleans();
         map.getTile(xMin, yMin).setPlayer(this.player);
-
-        canvas.noStroke();
-        canvas.fill(canvas.color(255, 0, 0));
-        canvas.rect((float)(player.getXPosition() + (0.25 * map.getBlockWidth())), (float)(player.getYPosition() + (0.25 * map.getBlockHeight())), 0.5f * map.getBlockWidth(), 0.5f * map.getBlockHeight());
 
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:
@@ -182,9 +203,10 @@ class Controller {
                 }
                 break;
 
-            case KeyEvent.VK_ALT:
+            case KeyEvent.VK_CONTROL:
                 if(player.canLayBomb()) {
                     player.layBomb();
+                    res.sound_layBomb.play();
                     if(xMin < 1) xMin = 1;
                     if(yMin < 1) yMin = 1;
                     effects.addEffect(new Bomb(player, map, effects, map.getBlockWidth(), map.getBlockHeight(), xMin, yMin, 10, 25), xMin * map.getBlockWidth(), yMin * map.getBlockHeight());

@@ -20,6 +20,10 @@ public class Map {
 
     private Random r;
 
+    public Map(){
+
+    }
+
     public Map(int width, int height) {
         this.width = width;
         this.height = height;
@@ -28,6 +32,39 @@ public class Map {
         r = new Random();
 
         initialize();
+    }
+
+    public Map(PApplet canvas, Resources res, network.Map transmittedMap){
+        System.out.println(transmittedMap);
+
+        this.canvas = canvas;
+        this.res = res;
+        this.width = transmittedMap.width;
+        this.height = transmittedMap.height;
+
+        this.blockWidth = canvas.width / width;
+        this.blockHeight = canvas.width / height;
+
+        tile = new Tile[width][height];
+        String[] tileRows = transmittedMap.tiles.split("\n");
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                char currentTile = tileRows[y].charAt(x);
+
+                switch(currentTile){
+                    case '0':
+                        tile[x][y] = new Tile(x, y, false, false);
+                        break;
+                    case '1':
+                        tile[x][y] = new Tile(x, y, true, false);
+                        break;
+                    case '2':
+                        tile[x][y] = new Tile(x, y, false, true);
+                        break;
+                }
+            }
+        }
     }
 
     public Map(PApplet canvas, Resources res, int width, int height, double wallChance, double destructableWallChance) {

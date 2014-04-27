@@ -94,6 +94,7 @@ public class Bomb implements Drawable {
             effects.addEffect(new Explosion(map.getBlockWidth(), map.getBlockHeight()), (float) (xMin + 0.5) * map.getBlockWidth(), (float) (yMin + 0.5) * map.getBlockHeight());
             effects.addEffect(new ExplosionBeam((maxX-minX-1) * map.getBlockWidth(), map.getBlockHeight(), ExplosionBeam.Orientation.HORIZONTAL), (minX+1) * map.getBlockWidth(), yMin * map.getBlockHeight());
             effects.addEffect(new ExplosionBeam(map.getBlockWidth(), (maxY-minY-1) * map.getBlockHeight(), ExplosionBeam.Orientation.VERTICAL), xMin * map.getBlockWidth(), (minY+1) * map.getBlockHeight());
+            res.sound_explode.play();
 
             for(Tile tile : destroyedTiles) {
                 tile.destroyTile();

@@ -1,14 +1,13 @@
 package network;
 
 
-import map.Map;
+import network.Map;
 
 /**
  * Created by winterj on 26.03.2014.
  */
 public class ServerVariables {
-
-    public enum CURRENT_INFORMATION {BOMB_PLAYER, MAP, PLAYER, BOMB, COMMAND}
+    public enum CURRENT_INFORMATION {NONE, BOMB_PLAYER, MAP, PLAYER, BOMB, COMMAND}
     public CURRENT_INFORMATION current;
     public Map map;
 
@@ -17,6 +16,10 @@ public class ServerVariables {
     public VBomb bomb;
 
     public byte command = -1;  //-1 = nothing|0 = pause| 1 = kick| 2 = resume|
+
+    public ServerVariables(){
+
+    }
 
     public ServerVariables(Map map) {
         this.map = map;

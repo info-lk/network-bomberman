@@ -9,7 +9,7 @@ public class MainApplet extends PApplet {
 
     public MainApplet() {
         super();
-        this.width = 1024;
+        this.width = 512;
         this.height = 512;
         cont = new Controller(this);
     }
