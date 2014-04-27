@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66e262f2-eab4-4adb-8cf4-0db9de28325b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/resources/bg_blurry.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/resources/death.ogg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/resources/explode1.ogg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/resources/hit.ogg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/resources/plop.ogg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/tinysound-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/info/LobbyScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/network/LobbyVariables.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/network/Map.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/network/Tile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/entity/Bomb.java" afterPath="$PROJECT_DIR$/base/src/entity/Bomb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/network/ClientVariables.java" afterPath="$PROJECT_DIR$/base/src/network/ClientVariables.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/game/Controller.java" afterPath="$PROJECT_DIR$/base/src/game/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/game/MainApplet.java" afterPath="$PROJECT_DIR$/base/src/game/MainApplet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/map/Map.java" afterPath="$PROJECT_DIR$/base/src/map/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/entity/Player.java" afterPath="$PROJECT_DIR$/base/src/entity/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/resources/Resources.java" afterPath="$PROJECT_DIR$/base/src/resources/Resources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/network/ServerVariables.java" afterPath="$PROJECT_DIR$/base/src/network/ServerVariables.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/map/Tile.java" afterPath="$PROJECT_DIR$/base/src/map/Tile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/base.iml" afterPath="$PROJECT_DIR$/base/base.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="network-bomberman.iws" />
@@ -29,7 +10,7 @@
     <file path="/Controller.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398603988593" ignored="false" />
     <file path="/Bomb.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398603042512" ignored="false" />
     <file path="/Effects.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398582358516" ignored="false" />
-    <file path="/Dummy.txt" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398587441462" ignored="false" />
+    <file path="/Dummy.txt" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398605971306" ignored="false" />
     <file path="/fragment.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398585775960" ignored="false" />
     <file path="$PROJECT_DIR$/../BombermanServer/src/com/company/network/Lobby.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398589755476" ignored="false" />
     <file path="/Lobby.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398589754648" ignored="false" />
@@ -55,6 +36,7 @@
     <file path="$PROJECT_DIR$/../BombermanServer/src/com/company/ServerGUI.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398592171419" ignored="false" />
     <file path="/ServerGUI.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398592098783" ignored="false" />
     <file path="$PROJECT_DIR$/../BombermanServer/src/com/company/ExternClasses/Tile.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398598743847" ignored="false" />
+    <file path="$PROJECT_DIR$/../BombermanServer/.idea/workspace.xml" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398608791553" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,10 +97,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainApplet.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainApplet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/src/game/MainApplet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="28" selection-start="437" selection-end="437" vertical-scroll-proportion="0.26555023">
+            <state line="35" column="22" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -154,28 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LobbyScreen.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LobbyScreen.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/base/src/info/LobbyScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="5" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Music.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/base/tinysound-1.1.1.jar!/kuusisto/tinysound/Music.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="65" selection-start="182" selection-end="182" vertical-scroll-proportion="-3.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tile.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/network/Tile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
+            <state line="39" column="0" selection-start="909" selection-end="909" vertical-scroll-proportion="0.7535885">
               <folding />
             </state>
           </provider>
@@ -372,6 +336,20 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network-bomberman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="map" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -426,20 +404,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-bomberman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -469,7 +433,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -728,7 +692,11 @@
       <created>1398583670783</created>
       <updated>1398583670783</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Hinzufügen von Sound, LobbyScreen, Verbindung zum Server ist nun möglich">
+      <created>1398605935287</created>
+      <updated>1398605935287</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -831,7 +799,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reinigung des Codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hinzufügen von Sound, LobbyScreen, Verbindung zum Server ist nun möglich" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -848,6 +816,7 @@
     <MESSAGE value="Added longer-range bombs" />
     <MESSAGE value="Informationsleiste und Death-Screen hinzugefügt" />
     <MESSAGE value="Reinigung des Codes" />
+    <MESSAGE value="Hinzufügen von Sound, LobbyScreen, Verbindung zum Server ist nun möglich" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -930,27 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/base/tinysound-1.1.1.jar!/kuusisto/tinysound/Music.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="65" selection-start="182" selection-end="182" vertical-scroll-proportion="-3.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/network/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/info/LobbyScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="5" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/resources/Resources.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="28" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0">
@@ -969,7 +917,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/base/src/game/MainApplet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="28" selection-start="437" selection-end="437" vertical-scroll-proportion="0.26555023">
+        <state line="35" column="22" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/network/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/base/tinysound-1.1.1.jar!/kuusisto/tinysound/Music.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="65" selection-start="182" selection-end="182" vertical-scroll-proportion="0.22900763">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/info/LobbyScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="909" selection-end="909" vertical-scroll-proportion="0.7535885">
           <folding />
         </state>
       </provider>
@@ -980,10 +949,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>game.jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
