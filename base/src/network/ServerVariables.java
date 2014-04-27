@@ -8,7 +8,7 @@ import map.Map;
  */
 public class ServerVariables {
 
-    public enum CURRENT_INFORMATION {BOMB_PLAYER, MAP, PLAYER, BOMB, COMMAND};
+    public enum CURRENT_INFORMATION {BOMB_PLAYER, MAP, PLAYER, BOMB, COMMAND}
     public CURRENT_INFORMATION current;
     public Map map;
 

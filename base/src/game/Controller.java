@@ -25,16 +25,15 @@ import java.io.IOException;
  * Date: 26.03.14
  * Time: 15:35
  */
-public class Controller {
-    Client client;
-    PApplet canvas;
-    Map map;
-    Resources res;
-    Effects effects;
-    Bomb bomb;
-    Player player;
-    InformationBar infoBar;
-    DeathScreen deathScreen;
+class Controller {
+    private Client client;
+    private PApplet canvas;
+    private Map map;
+    private Resources res;
+    private Effects effects;
+    private Player player;
+    private InformationBar infoBar;
+    private DeathScreen deathScreen;
 
     public Controller(PApplet canvas) {
         this.canvas = canvas;
@@ -143,7 +142,7 @@ public class Controller {
         }
     }
 
-    public void keyEvent() {
+    private void keyEvent() {
         int xMin = (int) Math.floor((player.getXPosition() + (0.25 * map.getBlockWidth())) / map.getBlockWidth());
         int yMin = (int) Math.floor((player.getYPosition() + (0.25 * map.getBlockHeight())) / map.getBlockHeight());
 

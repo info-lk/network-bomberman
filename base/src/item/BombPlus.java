@@ -4,18 +4,14 @@ import entity.Player;
 
 public class BombPlus extends Item {
 
-    private final String name = "Bombe plus";
-    private final String description = "With this item you can use one more bomb at the same time.";
-    private byte id = 01;
-
     @Override
     public String getName() {
-        return name;
+        return "Bomb plus";
     }
 
     @Override
     public byte getId() {
-        return id;
+        return 1;
     }
 
     public void onCollect(Player player) {

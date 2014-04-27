@@ -4,8 +4,6 @@ import processing.core.PApplet;
 import resources.Resources;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,9 +12,9 @@ import java.util.List;
  * Time: 15:52
  */
 public class Effects {
-    PApplet canvas;
-    Resources res;
-    ArrayList<Drawable> effects = new ArrayList<Drawable>();
+    private PApplet canvas;
+    private Resources res;
+    private ArrayList<Drawable> effects = new ArrayList<Drawable>();
 
     public Effects(PApplet canvas, Resources res) {
         this.canvas = canvas;

@@ -2,22 +2,21 @@ package game;
 
 import processing.core.*;
 
-/**
- * Created with IntelliJ IDEA.
- * User: leobernard
- * Date: 24.03.14
- * Time: 16:12
- */
 public class MainApplet extends PApplet {
-    Controller cont;
-    int width;
-    int height;
+    private Controller cont;
+    private int width;
+    private int height;
 
     public MainApplet() {
         super();
         this.width = 512;
         this.height = 512;
         cont = new Controller(this);
+    }
+
+    @Override
+    public boolean sketchFullScreen() {
+        return true;
     }
 
     public void setup() {
