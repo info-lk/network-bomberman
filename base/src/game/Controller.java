@@ -29,6 +29,7 @@ class Controller {
     private Client client;
     private PApplet canvas;
     private Map map;
+    private Bomb bomb;
     private Resources res;
     private Effects effects;
     private Player player;
