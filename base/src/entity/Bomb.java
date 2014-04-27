@@ -23,7 +23,7 @@ public class Bomb implements Drawable {
     private int strength;
     private int range = 10;
 
-    public Bomb(Player player, Map map, Effects effects, float tileWidth, float tileHeight, int x, int y) {
+    public Bomb(Player player, Map map, Effects effects, float tileWidth, float tileHeight, int x, int y, int range, int strength) {
         this.tileWidth = tileWidth;
         this.tileHeight = tileHeight;
         this.player = player;
@@ -31,6 +31,8 @@ public class Bomb implements Drawable {
         this.effects = effects;
         this.xMin = x;
         this.yMin = y;
+        this.range = range;
+        this.strength = strength;
     }
 
     @Override
@@ -57,7 +59,7 @@ public class Bomb implements Drawable {
             int minX = 1, maxX = 1, minY = 1, maxY = 1;
 
             for(int j = 0; j < 4; j++){
-                for(int i = 1; i < range; i++){
+                for(int i = 0; i < range; i++){
                     Tile tile = null;
                     switch(j){
                         case 0:
@@ -93,15 +95,11 @@ public class Bomb implements Drawable {
             effects.addEffect(new ExplosionBeam((maxX-minX-1) * map.getBlockWidth(), map.getBlockHeight(), ExplosionBeam.Orientation.HORIZONTAL), (minX+1) * map.getBlockWidth(), yMin * map.getBlockHeight());
             effects.addEffect(new ExplosionBeam(map.getBlockWidth(), (maxY-minY-1) * map.getBlockHeight(), ExplosionBeam.Orientation.VERTICAL), xMin * map.getBlockWidth(), (minY+1) * map.getBlockHeight());
 
-            System.out.println("HORIZ: {Width: " + (maxX-minX) * map.getBlockWidth() + ", Height: " + map.getBlockHeight() + "X: " + maxX * map.getBlockWidth() + ", Y: " + maxY * map.getBlockHeight());
-
             for(Tile tile : destroyedTiles) {
                 tile.destroyTile();
             }
 
             player.bombExploded();
-
-            System.out.println("Bomb exploded at (" + xMin + ", " + yMin + ")");
         }
     }
 

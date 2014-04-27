@@ -7,6 +7,8 @@ import entity.Bomb;
 import entity.Player;
 import graphics.Effects;
 import graphics.Explosion;
+import info.DeathScreen;
+import info.InformationBar;
 import map.Map;
 import map.Tile;
 import network.ClientVariables;
@@ -31,12 +33,15 @@ public class Controller {
     Effects effects;
     Bomb bomb;
     Player player;
+    InformationBar infoBar;
+    DeathScreen deathScreen;
 
     public Controller(PApplet canvas) {
         this.canvas = canvas;
         res = new Resources(canvas);
         effects = new Effects(canvas, res);
         client = new Client();
+
     }
 
     public void setup() {
@@ -45,7 +50,7 @@ public class Controller {
         map = new Map(canvas, res, 16, 16, 0, 50); //Nur zum testen nötig
 
         try {
-            client.connect(5000,"127.0.0.1",22222,11111);
+            client.connect(5000,"127.0.0.1",11111,22222);
 
             client.addListener(new Listener() {
                 public void received(Connection connection, Object object) {
@@ -109,15 +114,23 @@ public class Controller {
         player = new Player(canvas, res);
         player.setxPosition(map.getBlockWidth());
         player.setyPosition(map.getBlockHeight());
+
+        infoBar = new InformationBar(canvas, player, canvas.width);
+        deathScreen = new DeathScreen(canvas, canvas.width, canvas.height);
     }
 
     public void draw() {
         map.redrawTiles(true);
         player.draw(map.getBlockWidth(), map.getBlockHeight());
         effects.drawEffects();
+        infoBar.draw();
 
-        if (canvas.keyPressed) {
-            keyEvent();
+        if(player.getHealth() <= 0) {
+            deathScreen.draw();
+        }else{
+            if (canvas.keyPressed) {
+                keyEvent();
+            }
         }
 
         if (canvas.mousePressed) {
@@ -131,17 +144,16 @@ public class Controller {
     }
 
     public void keyEvent() {
-        //int xMin = (int) Math.ceil(player.getXPosition());
-        //int xMax = (int) Math.ceil(player.getXPosition() + 0.8);
         int xMin = (int) Math.floor((player.getXPosition() + (0.25 * map.getBlockWidth())) / map.getBlockWidth());
         int yMin = (int) Math.floor((player.getYPosition() + (0.25 * map.getBlockHeight())) / map.getBlockHeight());
 
-        //int yMin = (int) Math.ceil(player.getYPosition());
-        //int yMax = (int) Math.ceil(player.getYPosition() + 0.8);
         int xMax = (int) Math.floor((player.getXPosition() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
         int yMax = (int) Math.floor((player.getYPosition() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
 
-        canvas.stroke(255);
+        map.resetPlayerBooleans();
+        map.getTile(xMin, yMin).setPlayer(this.player);
+
+        canvas.noStroke();
         canvas.fill(canvas.color(255, 0, 0));
         canvas.rect((float)(player.getXPosition() + (0.25 * map.getBlockWidth())), (float)(player.getYPosition() + (0.25 * map.getBlockHeight())), 0.5f * map.getBlockWidth(), 0.5f * map.getBlockHeight());
 
@@ -173,7 +185,9 @@ public class Controller {
             case KeyEvent.VK_ALT:
                 if(player.canLayBomb()) {
                     player.layBomb();
-                    effects.addEffect(new Bomb(player, map, effects, map.getBlockWidth(), map.getBlockHeight(), xMin, yMin), xMin * map.getBlockWidth(), yMin * map.getBlockHeight());
+                    if(xMin < 1) xMin = 1;
+                    if(yMin < 1) yMin = 1;
+                    effects.addEffect(new Bomb(player, map, effects, map.getBlockWidth(), map.getBlockHeight(), xMin, yMin, 10, 25), xMin * map.getBlockWidth(), yMin * map.getBlockHeight());
                 }
                 break;
 

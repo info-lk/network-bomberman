@@ -9,7 +9,6 @@ public class Tile {
 
     private boolean destructable;
     private boolean passable;
-    private boolean hasPlayer;
     private boolean needsRedraw = true;
     private boolean isDestructing = false;
     private int currentDestruction = 0;
@@ -21,7 +20,6 @@ public class Tile {
         this.y = y;
         this.destructable = destructable;
         this.passable = passable;
-        hasPlayer = false;
         player = null;
     }
 
@@ -46,15 +44,19 @@ public class Tile {
     }
 
     public boolean hasPlayer() {
-        return hasPlayer;
+        return player != null;
     }
 
     public Player getPlayer() {
         return player;
     }
 
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+
     public String toString() {
-        return "[" + destructable + "][" + passable + "][" + hasPlayer + "]";
+        return "[" + destructable + "][" + passable + "][" + hasPlayer() + "]";
     }
 
     public void draw(PApplet canvas, Resources res, float x, float y, float width, float height, boolean force) {

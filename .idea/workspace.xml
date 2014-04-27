@@ -2,26 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66e262f2-eab4-4adb-8cf4-0db9de28325b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/graphics/ExplosionBeam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/info/DeathScreen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base/src/info/InformationBar.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/base/src/info/Main.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/entity/Bomb.java" afterPath="$PROJECT_DIR$/base/src/entity/Bomb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/game/Controller.java" afterPath="$PROJECT_DIR$/base/src/game/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/graphics/Drawable.java" afterPath="$PROJECT_DIR$/base/src/graphics/Drawable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/graphics/Explosion.java" afterPath="$PROJECT_DIR$/base/src/graphics/Explosion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/map/Map.java" afterPath="$PROJECT_DIR$/base/src/map/Map.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/entity/Player.java" afterPath="$PROJECT_DIR$/base/src/entity/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/map/Tile.java" afterPath="$PROJECT_DIR$/base/src/map/Tile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="network-bomberman.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Controller.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398540995765" ignored="false" />
-    <file path="/Bomb.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398545959084" ignored="false" />
+    <file path="/Controller.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398581251753" ignored="false" />
+    <file path="/Bomb.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398581662151" ignored="false" />
     <file path="/Effects.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1397836582232" ignored="false" />
-    <file path="/Dummy.txt" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398541938810" ignored="false" />
-    <file path="/fragment.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398542951500" ignored="false" />
+    <file path="/Dummy.txt" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398576846534" ignored="false" />
+    <file path="/fragment.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398580727562" ignored="false" />
     <file path="$PROJECT_DIR$/../BombermanServer/src/com/company/network/Lobby.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398541907704" ignored="false" />
     <file path="/Lobby.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398541902340" ignored="false" />
     <file path="/ExplosionBeam.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398543602923" ignored="false" />
+    <file path="/Main.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398547729160" ignored="false" />
+    <file path="/InformationBar.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398578240009" ignored="false" />
+    <file path="/Tile.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398579487168" ignored="false" />
+    <file path="/Map.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398579873417" ignored="false" />
+    <file path="/Player.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398581772155" ignored="false" />
+    <file path="/DeathScreen.java" changelist="66e262f2-eab4-4adb-8cf4-0db9de28325b" time="1398581533193" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,46 +88,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainApplet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/game/MainApplet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="26" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainGUI.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/game/MainGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Effects.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/graphics/Effects.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Drawable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/graphics/Drawable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="23" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/base/src/game/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="18" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
+            <state line="49" column="19" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.33411214">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InformationBar.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/info/InformationBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="11" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,28 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Explosion.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/graphics/Explosion.java">
+      <file leaf-file-name="DeathScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/info/DeathScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tile.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/map/Tile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="11" selection-start="647" selection-end="647" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="19" selection-start="58" selection-end="58" vertical-scroll-proportion="0.215311">
+            <state line="24" column="24" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -159,16 +120,37 @@
       <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/src/map/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="0" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0">
+            <state line="99" column="46" selection-start="2709" selection-end="2709" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExplosionBeam.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/graphics/ExplosionBeam.java">
+      <file leaf-file-name="Bomb.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/entity/Bomb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="853" selection-end="853" vertical-scroll-proportion="0.0">
+            <state line="61" column="29" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1836#1842#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/entity/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="26" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tile.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/map/Tile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="23" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -195,13 +177,18 @@
         <option value="$PROJECT_DIR$/base/src/network/VPlayer.java" />
         <option value="$PROJECT_DIR$/base/src/game/MainGUI.java" />
         <option value="$PROJECT_DIR$/base/src/graphics/Effects.java" />
-        <option value="$PROJECT_DIR$/base/src/game/Controller.java" />
         <option value="$PROJECT_DIR$/base/src/graphics/Drawable.java" />
         <option value="$PROJECT_DIR$/base/src/graphics/Explosion.java" />
         <option value="$PROJECT_DIR$/base/src/graphics/ExplosionBeam.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/base/src/info/Main.java" />
+        <option value="$PROJECT_DIR$/base/src/info/InformationBar.java" />
+        <option value="$PROJECT_DIR$/base/src/map/Map.java" />
+        <option value="$PROJECT_DIR$/base/src/map/Tile.java" />
+        <option value="$PROJECT_DIR$/base/src/game/Controller.java" />
         <option value="$PROJECT_DIR$/base/src/entity/Bomb.java" />
         <option value="$PROJECT_DIR$/base/src/entity/Player.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/base/src/info/DeathScreen.java" />
       </list>
     </option>
   </component>
@@ -236,7 +223,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -383,48 +369,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="graphics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-bomberman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-bomberman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -441,15 +392,16 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="info" />
       <recent name="graphics" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -532,19 +484,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -570,6 +509,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -662,6 +614,11 @@
       <created>1397558917209</created>
       <updated>1397558917209</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added longer-range bombs">
+      <created>1398546277931</created>
+      <updated>1398546277931</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -689,29 +646,29 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32904148" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39914164" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24930556" sideWeight="0.6709585" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32904148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39914164" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -764,7 +721,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added longer-range bombs" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -778,6 +735,7 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Added longer-range bombs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -787,80 +745,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/base/src/entity/Bomb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1749#1755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/info/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/Processing.app/Contents/Java/core/library/core.jar!/processing/core/PApplet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1617" column="16" selection-start="65477" selection-end="65477" vertical-scroll-proportion="0.29280397" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/resources/strahl.vert.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/map/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="0" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/graphics/Effects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/graphics/Drawable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="23" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/graphics/Explosion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="5" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/game/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="18" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/game/MainApplet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/game/MainGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -872,33 +764,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/entity/Bomb.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="35" selection-start="2762" selection-end="2762" vertical-scroll-proportion="0.7160494">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1749#1755#0" expanded="true" />
-          </folding>
+        <state line="6" column="19" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/base/kryonet-2.21-all.jar!/com/esotericsoftware/kryonet/Client.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="16" selection-start="1436" selection-end="1436" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/game/MainApplet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="26" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/graphics/Effects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/graphics/Explosion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="5" selection-start="1072" selection-end="1072" vertical-scroll-proportion="-11.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/game/MainGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/src/map/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="11" selection-start="647" selection-end="647" vertical-scroll-proportion="0.0">
+        <state line="42" column="23" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/info/InformationBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="11" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/map/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="46" selection-start="2709" selection-end="2709" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/entity/Bomb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="29" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1836#1842#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/src/entity/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="117" selection-end="117" vertical-scroll-proportion="-0.35885167">
+        <state line="31" column="26" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/base/src/info/DeathScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="58" selection-end="58" vertical-scroll-proportion="0.215311">
+        <state line="24" column="24" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/game/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="19" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.33411214">
           <folding />
         </state>
       </provider>

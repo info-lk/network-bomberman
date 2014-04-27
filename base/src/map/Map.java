@@ -94,6 +94,14 @@ public class Map {
         return tile[x][y];
     }
 
+    public void resetPlayerBooleans(){
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                getTile(x, y).setPlayer(null);
+            }
+        }
+    }
+
     public float getBlockWidth() {
         return blockWidth;
     }

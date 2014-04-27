@@ -37,7 +37,8 @@ public class Player {
     }
 
     public void hurt(double damage) {
-        if (!hasShield) health -= health;
+        if (!hasShield) health -= damage;
+        if(health < 0) health = 0;
     }
 
     public void collectItem(Item item) {
@@ -107,6 +108,7 @@ public class Player {
 
     public void draw(float width, float height) {
         canvas.noSmooth();
+        if(health <= 0) canvas.tint(255, 127);
         canvas.image(res.skull_creeper, (float) this.xPosition, (float) this.yPosition, width, height);
         canvas.smooth();
     }
