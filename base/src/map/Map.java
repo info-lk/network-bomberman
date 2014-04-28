@@ -35,6 +35,7 @@ public class Map {
     }
 
     public Map(PApplet canvas, Resources res, network.Map transmittedMap){
+        System.out.println("Transmitted map:");
         System.out.println(transmittedMap);
 
         this.canvas = canvas;
@@ -95,7 +96,6 @@ public class Map {
                     tile[x][y] = generateRandomTile(x, y);
                 }
             }
-            System.out.println();
         }
     }
 

@@ -52,8 +52,6 @@ class Controller {
         client.getKryo().register(ClientVariables.class);
         client.getKryo().register(LobbyVariables.class);
         client.getKryo().register(network.Map.class);
-        client.getKryo().register(int[][].class);
-        client.getKryo().register(int[].class);
         map = new Map(canvas, res, 32, 32, 0, 20);
 
         player = new Player(canvas, res);
