@@ -23,12 +23,15 @@ public class HasShield extends Item {
 
     @Override
     public void onCollect(Player player) {
-        player.hasShield = true;
+        player.setHasShield(true);
     }
 
     @Override
     public PImage getImage(Resources res) {
         return res.shieldItem;
     }
+
+}
+
 
 }
