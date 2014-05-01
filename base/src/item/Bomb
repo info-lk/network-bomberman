@@ -1,0 +1,40 @@
+package item;
+
+import entity.Player;
+import processing.core.PApplet;
+import processing.core.PImage;
+import resources.Resources;
+
+public class Bomb extends Item {
+
+	private final String name = "Bomb";
+	private final String description = "Usual bomb with 1 Tile in every direction.";
+	private byte id = 01;
+        private double damage = 50D;
+        private int step;
+        private PApplet canvas;
+         
+         Bomb(PApplet canvas){
+             this.canvas = canvas;
+         }
+         
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public byte getId() {
+		return id;
+	}
+	
+	public void onCollect(Player player) {
+            player.currentBomb(this.name);
+	}
+
+        @Override
+        public PImage getImage(Resources res) {
+           return res.eggItem;
+        }
+
+}
