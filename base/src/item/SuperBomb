@@ -1,0 +1,33 @@
+package item;
+
+import entity.Player;
+import processing.core.PImage;
+import resources.Resources;
+
+public class SuperBomb extends Item {
+
+	private final String name = "SuperBomb";
+	private final String description = "Bomb hitting all the Tiles in the left and the right.";
+	private byte id = 02;
+        private double damage = 50D;
+	
+        @Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public byte getId() {
+		return id;
+	}
+	
+	public void onCollect(Player player) {
+            player.currentBomb(this.name);
+	}
+
+    @Override
+    public PImage getImage(Resources res) {
+        return res.superbombItem;
+    }
+
+}
