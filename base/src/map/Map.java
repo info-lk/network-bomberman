@@ -92,6 +92,8 @@ public class Map {
             for (int x = 0; x < width; x++) {
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1) { //Wall
                     tile[x][y] = new Tile(x, y, false, false);
+                }else if(x == 1 && y == 1){
+                    tile[x][y] = new Tile(x, y, false, true);
                 } else {
                     tile[x][y] = generateRandomTile(x, y);
                 }
@@ -134,7 +136,7 @@ public class Map {
     public void resetPlayerBooleans(){
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                getTile(x, y).setPlayer(null);
+                getTile(x, y).setPlayer(null, res);
             }
         }
     }

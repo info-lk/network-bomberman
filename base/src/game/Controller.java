@@ -22,18 +22,20 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.ArrayList;
 
 class Controller {
-    private Client client;
+    private Client client; // Der Client
     private PApplet canvas;
     private Map map;
-    private Bomb bomb;
     private Resources res;
     private Effects effects;
     private Player player;
     private InformationBar infoBar;
     private DeathScreen deathScreen;
     private LobbyScreen lobbyScreen;
+    private ArrayList<Player> enemies = new ArrayList<Player>();
+    private int step;
 
     public Controller(PApplet canvas) {
         this.canvas = canvas;
@@ -94,11 +96,6 @@ class Controller {
                             enemy.setLookDirection(sV.player.lookDirection);
                             enemy.draw(map.getBlockWidth(),map.getBlockHeight());
                         }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB)) {
-                            bomb.setXPos((float) sV.bomb.layBombAtX * map.getBlockWidth());
-                            bomb.setYPos((float) sV.bomb.layBombAtY * map.getBlockHeight());
-                            bomb.draw();
-                        }
                         else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB_PLAYER)) {
                             Player enemy = new Player(canvas,res);
                             enemy.setxPosition(sV.player.xPosition);
@@ -106,10 +103,6 @@ class Controller {
                             enemy.setHasShield(sV.player.hasShield);
                             enemy.setLookDirection(sV.player.lookDirection);
                             enemy.draw(map.getBlockWidth(), map.getBlockHeight());
-
-                            bomb.setXPos((float) sV.bomb.layBombAtX * map.getBlockWidth());
-                            bomb.setYPos((float) sV.bomb.layBombAtY * map.getBlockHeight());
-                            bomb.draw();
                         }
                         else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.COMMAND)) {
                             switch(sV.command) {
@@ -151,6 +144,7 @@ class Controller {
     }
 
     public void draw() {
+        step++;
         map.redrawTiles(true);
         player.draw(map.getBlockWidth(), map.getBlockHeight());
         effects.drawEffects();
@@ -173,8 +167,14 @@ class Controller {
         int xMax = (int) Math.floor((player.getXPosition() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
         int yMax = (int) Math.floor((player.getYPosition() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
 
+        int xMinS = (int) Math.floor((player.getXPosition() + player.getSwiftness() + (0.25 * map.getBlockWidth())) / map.getBlockWidth());
+        int yMinS = (int) Math.floor((player.getYPosition() + player.getSwiftness() + (0.25 * map.getBlockHeight())) / map.getBlockHeight());
+
+        int xMaxS = (int) Math.floor((player.getXPosition() + player.getSwiftness() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
+        int yMaxS = (int) Math.floor((player.getYPosition() + player.getSwiftness() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
+
         map.resetPlayerBooleans();
-        map.getTile(xMin, yMin).setPlayer(this.player);
+        map.getTile(xMin, yMin).setPlayer(this.player, this.res);
 
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:
@@ -201,8 +201,9 @@ class Controller {
                 }
                 break;
 
-            case KeyEvent.VK_CONTROL:
-                if(player.canLayBomb()) {
+            case 0:
+                if(player.canLayBomb() && !map.getTile(xMin, yMin).hasBomb()) {
+                    step = 0;
                     player.layBomb();
                     res.sound_layBomb.play();
                     if(xMin < 1) xMin = 1;
@@ -210,10 +211,8 @@ class Controller {
                     effects.addEffect(new Bomb(player, map, effects, map.getBlockWidth(), map.getBlockHeight(), xMin, yMin, 10, 25), xMin * map.getBlockWidth(), yMin * map.getBlockHeight());
                 }
                 break;
-
-            case KeyEvent.VK_ESCAPE:
-                //openMenu();
-                break;
+            default:
+                System.out.println(canvas.keyCode);
         }
     }
 }

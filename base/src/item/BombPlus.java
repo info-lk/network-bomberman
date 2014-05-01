@@ -1,6 +1,8 @@
 package item;
 
 import entity.Player;
+import processing.core.PImage;
+import resources.Resources;
 
 public class BombPlus extends Item {
 
@@ -18,4 +20,8 @@ public class BombPlus extends Item {
         player.addBombs(1);
     }
 
+    @Override
+    public PImage getImage(Resources res) {
+        return res.egg;
+    }
 }

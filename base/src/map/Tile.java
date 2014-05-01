@@ -1,9 +1,13 @@
 package map;
 
 import entity.Player;
+import item.BombPlus;
+import item.Item;
 import processing.core.PApplet;
 import processing.core.PImage;
 import resources.Resources;
+
+import java.util.Random;
 
 public class Tile {
 
@@ -14,6 +18,8 @@ public class Tile {
     private int currentDestruction = 0;
     private Player player;
     private int x, y = 0;
+    private Item item;
+    private boolean hasBomb;
 
     public Tile(){
 
@@ -55,8 +61,22 @@ public class Tile {
         return player;
     }
 
-    public void setPlayer(Player player){
+    public boolean hasBomb() {
+        return hasBomb;
+    }
+
+    public void setHasBomb(boolean hasBomb) {
+        this.hasBomb = hasBomb;
+    }
+
+    public void setPlayer(Player player, Resources res){
         this.player = player;
+
+        if(hasPlayer() && this.item != null){
+            this.item.onCollect(this.player);
+            res.item_collect.play();
+            this.item = null;
+        }
     }
 
     public String toString() {
@@ -72,8 +92,11 @@ public class Tile {
                 img = res.bedrock;
             }
 
-
             canvas.image(img, x, y, width, height);
+
+            if(this.item != null){
+                item.draw(canvas, res, width, height, x, y);
+            }
 
             if (isDestructing) {
                 currentDestruction += 8;
@@ -87,6 +110,12 @@ public class Tile {
                     isDestructing = false;
                     destructable = false;
                     passable = true;
+
+                    Random r = new Random();
+
+                    if(r.nextInt(100) < 10){
+                        this.item = new BombPlus();
+                    }
                 }
             } else {
                 needsRedraw = false;

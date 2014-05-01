@@ -14,6 +14,7 @@ public class Resources {
     public PImage bedrock;
     public PImage dirt;
     public PImage grass;
+    public PImage item_bg;
     public PImage cobblestone;
     public PImage explosion;
     public PImage egg;
@@ -25,6 +26,7 @@ public class Resources {
     public Sound sound_layBomb;
     public Sound sound_hurt;
     public Sound sound_die;
+    public Sound item_collect;
     public Music music_lobby;
 
 
@@ -32,6 +34,7 @@ public class Resources {
         this.bedrock = canvas.loadImage("resources/bedrock.png");
         this.dirt = canvas.loadImage("resources/dirt.png");
         this.grass = canvas.loadImage("resources/grass.png");
+        this.item_bg = canvas.loadImage("resources/item_bg.png");
         this.cobblestone = canvas.loadImage("resources/cobblestone.png");
         this.explosion = canvas.loadImage("resources/explosion.png");
         this.beam_horiz = canvas.loadImage("resources/strahl.horiz.png");
@@ -46,5 +49,6 @@ public class Resources {
         this.sound_hurt = TinySound.loadSound("resources/hit.ogg");
         this.sound_die = TinySound.loadSound("resources/death.ogg");
         this.music_lobby = TinySound.loadMusic("resources/lobby_music.ogg");
+        this.item_collect = TinySound.loadSound("resources/eat.ogg");
     }
 }

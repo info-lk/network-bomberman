@@ -41,6 +41,8 @@ public class Bomb implements Drawable {
         this.res = res;
         this.x = x;
         this.y = y;
+
+        map.getTile(this.xMin, this.yMin).setHasBomb(true);
     }
 
     public void draw() {
@@ -91,6 +93,7 @@ public class Bomb implements Drawable {
                 }
             }
 
+            map.getTile(this.xMin, this.yMin).setHasBomb(false);
             effects.addEffect(new Explosion(map.getBlockWidth(), map.getBlockHeight()), (float) (xMin + 0.5) * map.getBlockWidth(), (float) (yMin + 0.5) * map.getBlockHeight());
             effects.addEffect(new ExplosionBeam((maxX-minX-1) * map.getBlockWidth(), map.getBlockHeight(), ExplosionBeam.Orientation.HORIZONTAL), (minX+1) * map.getBlockWidth(), yMin * map.getBlockHeight());
             effects.addEffect(new ExplosionBeam(map.getBlockWidth(), (maxY-minY-1) * map.getBlockHeight(), ExplosionBeam.Orientation.VERTICAL), xMin * map.getBlockWidth(), (minY+1) * map.getBlockHeight());

@@ -35,4 +35,8 @@ public class MainApplet extends PApplet {
     public int getHeight() {
         return height;
     }
+
+    public static void main(String args[]) {
+        PApplet.main(new String[] { "--present", "game.MainApplet" });
+    }
 }

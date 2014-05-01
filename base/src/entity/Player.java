@@ -120,9 +120,9 @@ public class Player {
 
         canvas.noStroke();
         canvas.fill(canvas.color(0xFF, 0, 0));
-        canvas.rect((float) this.xPosition, (float) this.yPosition, width, 4);
+        canvas.rect((float) this.xPosition, (float) this.yPosition - 4, width, 2);
         canvas.fill(canvas.color(0, 0xFF, 0));
-        canvas.rect((float) this.xPosition, (float) this.yPosition, (float) (health*width/100), 4);
+        canvas.rect((float) this.xPosition, (float) this.yPosition - 4, (float) (health*width/100), 2);
     }
 
     public void layBomb() {
