@@ -1,0 +1,32 @@
+package item;
+
+import entity.Player;
+import processing.core.PImage;
+import resources.Resources;
+
+public class WaterBomb extends Item {
+
+	private final String name = "WaterBomb";
+	private final String description = "2 tiles in every direction.";
+	private byte id = 03;
+        private double damage = 50D;
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public byte getId() {
+		return id;
+	}
+	
+	public void onCollect(Player player) {
+            player.currentBomb(this.name);
+	}
+
+        @Override
+        public PImage getImage(Resources res) {
+            return res.waterbombItem;
+        }
+
+}

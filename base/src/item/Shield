@@ -1,0 +1,37 @@
+package item;
+
+import entity.Player;
+import processing.core.PImage;
+import resources.Resources;
+
+public class HasShield extends Item {
+    
+    private final String name = "Shield";
+    private final String description = "With this item you get a shield for a few seconds.";
+    private byte id = 01;
+    
+    
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public byte getId() {
+        return id;
+    }
+
+    @Override
+    public void onCollect(Player player) {
+        player.setHasShield(true);
+    }
+
+    @Override
+    public PImage getImage(Resources res) {
+        return res.shieldItem;
+    }
+
+}
+
+
+}

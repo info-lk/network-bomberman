@@ -15,6 +15,7 @@ import map.Tile;
 import network.ClientVariables;
 import network.LobbyVariables;
 import network.ServerVariables;
+import network.VPlayer;
 import processing.core.PApplet;
 import resources.Resources;
 
@@ -34,14 +35,15 @@ class Controller {
     private InformationBar infoBar;
     private DeathScreen deathScreen;
     private LobbyScreen lobbyScreen;
-    private ArrayList<Player> enemies = new ArrayList<Player>();
+    private Player[] enemies;
+    private int ID;
     private int step;
 
     public Controller(PApplet canvas) {
         this.canvas = canvas;
         res = new Resources(canvas);
         effects = new Effects(canvas, res);
-        client = new Client();
+        client = new Client(32768, 8192);
     }
 
     public void setup() {
@@ -55,6 +57,8 @@ class Controller {
         client.getKryo().register(LobbyVariables.class);
         client.getKryo().register(network.Map.class);
         map = new Map(canvas, res, 128, 128, 20, 50);
+
+        ID = -1;
 
         player = new Player(canvas, res);
         player.setxPosition(map.getBlockWidth());
@@ -77,10 +81,15 @@ class Controller {
             lobbyScreen.setText("Connecting to server at " + serveraddr);
             client.connect(5000, serveraddr, 11111, 22222);
 
+
             client.addListener(new Listener() {
                 public void received(Connection connection, Object object) {
                     if(object instanceof ServerVariables) {
                         ServerVariables sV = (ServerVariables) object;
+                        if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.ID)) {
+                            ID = sV.ID;
+                            System.out.println("Your Id is: " + ID);
+                        }
                         if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.MAP)) {
                             System.out.println(sV.map);
                             map = new Map(canvas, res, sV.map);
@@ -88,13 +97,25 @@ class Controller {
                             player.setyPosition(32);
                             player.setxPosition(32);
                         }
+                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
+                            enemies = new Player[sV.players.length - 1];
+                            VPlayer[] copy = sV.players;
+                            int pos = 0;
+                            for(int i = 0; i < copy.length; i++) {
+                                if(i != ID) {
+                                    enemies[pos] = new Player(canvas, res);
+                                    enemies[pos].createPlayerFromVPlayer(copy[i]);
+                                    pos++;
+                                }
+                            }
+                            player.createPlayerFromVPlayer(copy[ID]);
+                            System.out.println("Players received");
+                        }
                         else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYER)) {
-                            Player enemy = new Player(canvas,res);
-                            enemy.setxPosition(sV.player.xPosition);
-                            enemy.setyPosition(sV.player.yPosition);
-                            enemy.setHasShield(sV.player.hasShield);
-                            enemy.setLookDirection(sV.player.lookDirection);
-                            enemy.draw(map.getBlockWidth(),map.getBlockHeight());
+                            enemies[sV.player.ID].setxPosition(sV.player.xPosition);
+                            enemies[sV.player.ID].setyPosition(sV.player.yPosition);
+                            enemies[sV.player.ID].setHasShield(sV.player.hasShield);
+                            enemies[sV.player.ID].setLookDirection(sV.player.lookDirection);
                         }
                         else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB_PLAYER)) {
                             Player enemy = new Player(canvas,res);
@@ -179,25 +200,25 @@ class Controller {
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:
                 if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMax,yMin).isPassable()) {
-                    player.move(Player.DIRECTION.UP);
+                    player.move(VPlayer.DIRECTION.UP);
                 }
                 break;
 
             case KeyEvent.VK_DOWN:
                 if (map.getTile(xMin, yMax).isPassable() && map.getTile(xMax,yMax).isPassable()) {
-                    player.move(Player.DIRECTION.DOWN);
+                    player.move(VPlayer.DIRECTION.DOWN);
                 }
                 break;
 
             case KeyEvent.VK_LEFT:
                 if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMin,yMax).isPassable()) {
-                    player.move(Player.DIRECTION.LEFT);
+                    player.move(VPlayer.DIRECTION.LEFT);
                 }
                 break;
 
             case KeyEvent.VK_RIGHT:
                 if (map.getTile(xMax, yMin).isPassable() && map.getTile(xMax,yMax).isPassable()) {
-                    player.move(Player.DIRECTION.RIGHT);
+                    player.move(VPlayer.DIRECTION.RIGHT);
                 }
                 break;
 

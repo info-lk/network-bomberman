@@ -1,17 +1,17 @@
 package entity;
 
 import item.Item;
+import network.VPlayer;
 import processing.core.PApplet;
 import resources.Resources;
 
 public class Player {
-    private DIRECTION lookDirection;
+    private VPlayer.DIRECTION lookDirection;
     private int bombsCurrentlyLaid;
-
-    public static enum DIRECTION {UP, DOWN, LEFT, RIGHT}
 
     private double xPosition;
     private double yPosition;
+    private  int ID;
 
     private int bombs;
     private double swiftness;
@@ -30,10 +30,17 @@ public class Player {
         swiftness = 1D;
         bombs = 1;
         hasShield = false;
-        lookDirection = DIRECTION.DOWN;
+        lookDirection = VPlayer.DIRECTION.DOWN;
 
         this.canvas = canvas;
         this.res = res;
+    }
+
+    public void createPlayerFromVPlayer(VPlayer vPlayer) {
+        xPosition = vPlayer.xPosition;
+        yPosition = vPlayer.yPosition;
+        lookDirection = vPlayer.lookDirection;
+        ID = vPlayer.ID;
     }
 
     public void hurt(double damage) {
@@ -91,11 +98,11 @@ public class Player {
         this.hasShield = hasShield;
     }
 
-    public void setLookDirection(DIRECTION lookDirection) {
+    public void setLookDirection(VPlayer.DIRECTION lookDirection) {
         this.lookDirection = lookDirection;
     }
 
-    public void move(DIRECTION dir) {
+    public void move(VPlayer.DIRECTION dir) {
         switch (dir) {
             case DOWN:
                 this.yPosition += this.swiftness;

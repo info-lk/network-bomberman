@@ -7,13 +7,16 @@ import network.Map;
  * Created by winterj on 26.03.2014.
  */
 public class ServerVariables {
-    public enum CURRENT_INFORMATION {NONE, BOMB_PLAYER, MAP, PLAYER, BOMB, COMMAND}
+    public enum CURRENT_INFORMATION {NONE, BOMB_PLAYER, MAP, PLAYER, PLAYERS, BOMB, ID, COMMAND}
     public CURRENT_INFORMATION current;
     public Map map;
 
     public VPlayer player; //The player to update
+    public VPlayer[] players; //All players
 
     public VBomb bomb;
+
+    public int ID;
 
     public byte command = -1;  //-1 = nothing|0 = pause| 1 = kick| 2 = resume|
 
@@ -45,5 +48,9 @@ public class ServerVariables {
         this.player = player;
         this.bomb = bomb;
         current = CURRENT_INFORMATION.BOMB_PLAYER;
+    }
+
+    public ServerVariables(int ID) {
+        this.ID = ID;
     }
 }
