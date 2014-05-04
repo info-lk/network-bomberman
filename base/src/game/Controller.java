@@ -6,12 +6,10 @@ import com.esotericsoftware.kryonet.Listener;
 import entity.Bomb;
 import entity.Player;
 import graphics.Effects;
-import graphics.Explosion;
 import info.DeathScreen;
 import info.InformationBar;
 import info.LobbyScreen;
 import map.Map;
-import map.Tile;
 import network.ClientVariables;
 import network.LobbyVariables;
 import network.ServerVariables;
@@ -22,8 +20,6 @@ import resources.Resources;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.util.ArrayList;
 
 class Controller {
     private Client client; // Der Client
@@ -98,6 +94,7 @@ class Controller {
                             player.setxPosition(32);
                         }
                         else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
+                            System.out.println("HIIIII");
                             enemies = new Player[sV.players.length - 1];
                             VPlayer[] copy = sV.players;
                             int pos = 0;

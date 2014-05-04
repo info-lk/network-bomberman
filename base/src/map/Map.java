@@ -40,8 +40,8 @@ public class Map {
 
         this.canvas = canvas;
         this.res = res;
-        this.width = transmittedMap.width;
-        this.height = transmittedMap.height;
+        this.width = transmittedMap.getWidth();
+        this.height = transmittedMap.getHeight();
 
         this.blockWidth = canvas.width / width;
         this.blockHeight = canvas.width / height;

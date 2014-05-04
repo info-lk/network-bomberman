@@ -10,6 +10,7 @@
     <orderEntry type="library" name="kryonet-2.21-all" level="project" />
     <orderEntry type="library" name="core" level="project" />
     <orderEntry type="library" name="tinysound-1.1.1" level="project" />
+    <orderEntry type="library" name="NetworkLibrary" level="project" />
   </component>
 </module>
 
