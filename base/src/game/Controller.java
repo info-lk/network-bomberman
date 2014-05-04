@@ -54,7 +54,7 @@ class Controller {
         client.getKryo().register(ClientVariables.class);
         client.getKryo().register(LobbyVariables.class);
         client.getKryo().register(network.Map.class);
-        map = new Map(canvas, res, 32, 32, 0, 20);
+        map = new Map(canvas, res, 128, 128, 20, 50);
 
         player = new Player(canvas, res);
         player.setxPosition(map.getBlockWidth());
