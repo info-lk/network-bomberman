@@ -3,6 +3,7 @@ package resources;
 import processing.core.PImage;
 import processing.core.PApplet;
 import kuusisto.tinysound.*;
+import tools.FileArrayReader;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,6 +28,7 @@ public class Resources {
     public PImage shieldItem;
     public PImage skull_creeper;
     public PImage bg_blurry;
+
     public Sound sound_explode;
     public Sound sound_layBomb;
     public Sound sound_hurt;
@@ -34,6 +36,7 @@ public class Resources {
     public Sound item_collect;
     public Music music_lobby;
 
+    public String[] deathMessages;
 
     public Resources(PApplet canvas) {
         this.bedrock = canvas.loadImage("resources/bedrock.png");
@@ -48,10 +51,10 @@ public class Resources {
         this.skull_creeper = canvas.loadImage("resources/skull_creeper.png");
         this.bg_blurry = canvas.loadImage("resources/bg_blurry.png");
         this.SpeedItem = canvas.loadImage("resources/gold_boots_Item.png");
-        this.eggItem = canvas.loadImage("resources/eggItem.png");
-        this.superbombItem = canvas.loadImage("resources/apple_golden_Item.png");
-        this.waterbombItem = canvas.loadImage("resources/waterbombItem.png");
-        this.shieldItem = canvas.loadImage("resources/leather_chestplate_Item.png");
+        this.eggItem = canvas.loadImage("resources/egg.png");
+        this.superbombItem = canvas.loadImage("resources/apple_golden.png");
+        this.waterbombItem = canvas.loadImage("resources/ender_pearl.png");
+        this.shieldItem = canvas.loadImage("resources/leather_chestplate.png");
 
         TinySound.init();
         this.sound_explode = TinySound.loadSound("resources/explode1.ogg");
@@ -60,5 +63,7 @@ public class Resources {
         this.sound_die = TinySound.loadSound("resources/death.ogg");
         this.music_lobby = TinySound.loadMusic("resources/lobby_music.ogg");
         this.item_collect = TinySound.loadSound("resources/eat.ogg");
+
+        this.deathMessages = FileArrayReader.readLines("resources/death_messages.txt");
     }
 }

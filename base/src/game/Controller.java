@@ -56,7 +56,7 @@ class Controller {
         client.getKryo().register(ClientVariables.class);
         client.getKryo().register(LobbyVariables.class);
         client.getKryo().register(network.Map.class);
-        map = new Map(canvas, res, 128, 128, 20, 50);
+        map = new Map(canvas, res, 32, 32, 20, 50);
 
         ID = -1;
 
@@ -72,7 +72,7 @@ class Controller {
             lobbyScreen.setText("Searching for the server...");
             String serveraddr = JOptionPane.showInputDialog(null, "Please enter the server's IP address", "Connect to server", JOptionPane.QUESTION_MESSAGE);
 
-            if(serveraddr == null){
+            if (serveraddr == null) {
                 lobbyScreen.setVisible(false);
                 return;
             }
@@ -84,25 +84,24 @@ class Controller {
 
             client.addListener(new Listener() {
                 public void received(Connection connection, Object object) {
-                    if(object instanceof ServerVariables) {
+                    if (object instanceof ServerVariables) {
                         ServerVariables sV = (ServerVariables) object;
-                        if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.ID)) {
+                        if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.ID)) {
                             ID = sV.ID;
                             System.out.println("Your Id is: " + ID);
                         }
-                        if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.MAP)) {
+                        if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.MAP)) {
                             System.out.println(sV.map);
                             map = new Map(canvas, res, sV.map);
                             lobbyScreen.setVisible(false);
                             player.setyPosition(32);
                             player.setxPosition(32);
-                        }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
+                        } else if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
                             enemies = new Player[sV.players.length - 1];
                             VPlayer[] copy = sV.players;
                             int pos = 0;
-                            for(int i = 0; i < copy.length; i++) {
-                                if(i != ID) {
+                            for (int i = 0; i < copy.length; i++) {
+                                if (i != ID) {
                                     enemies[pos] = new Player(canvas, res);
                                     enemies[pos].createPlayerFromVPlayer(copy[i]);
                                     pos++;
@@ -110,23 +109,20 @@ class Controller {
                             }
                             player.createPlayerFromVPlayer(copy[ID]);
                             System.out.println("Players received");
-                        }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYER)) {
+                        } else if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYER)) {
                             enemies[sV.player.ID].setxPosition(sV.player.xPosition);
                             enemies[sV.player.ID].setyPosition(sV.player.yPosition);
                             enemies[sV.player.ID].setHasShield(sV.player.hasShield);
                             enemies[sV.player.ID].setLookDirection(sV.player.lookDirection);
-                        }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB_PLAYER)) {
-                            Player enemy = new Player(canvas,res);
+                        } else if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.BOMB_PLAYER)) {
+                            Player enemy = new Player(canvas, res);
                             enemy.setxPosition(sV.player.xPosition);
                             enemy.setyPosition(sV.player.yPosition);
                             enemy.setHasShield(sV.player.hasShield);
                             enemy.setLookDirection(sV.player.lookDirection);
                             enemy.draw(map.getBlockWidth(), map.getBlockHeight());
-                        }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.COMMAND)) {
-                            switch(sV.command) {
+                        } else if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.COMMAND)) {
+                            switch (sV.command) {
                                 case -1:
                                     break;
                                 case 0: //pause
@@ -141,18 +137,18 @@ class Controller {
                                 case 2:
                                     canvas.resume();
                                     break;
-                                default :
+                                default:
                                     System.out.println("Unknown server command");
                             }
                         }
-                    }else if(object instanceof LobbyVariables){
+                    } else if (object instanceof LobbyVariables) {
                         LobbyVariables lobby = (LobbyVariables) object;
 
-                        if(!lobby.error && !lobby.isReady){
+                        if (!lobby.error && !lobby.isReady) {
                             lobbyScreen.setText("Waiting in the lobby\n(" + (30 - lobby.seconds) + " sec. left).\n\nPlayers: " + lobby.connectedClients);
-                        }else if(lobby.error){
+                        } else if (lobby.error) {
                             lobbyScreen.setText("Server-side Error:\n" + lobby.errorMsg);
-                        }else if(lobby.isReady){
+                        } else if (lobby.isReady) {
                             lobbyScreen.setText("Waiting for the map...");
                         }
                     }
@@ -172,9 +168,9 @@ class Controller {
         infoBar.draw();
         lobbyScreen.draw();
 
-        if(player.getHealth() <= 0) {
+        if (player.getHealth() <= 0) {
             deathScreen.draw();
-        }else if(!lobbyScreen.isVisible()){
+        } else if (!lobbyScreen.isVisible()) {
             if (canvas.keyPressed) {
                 keyEvent();
             }
@@ -199,36 +195,36 @@ class Controller {
 
         switch (canvas.keyCode) {
             case KeyEvent.VK_UP:
-                if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMax,yMin).isPassable()) {
+                if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMax, yMin).isPassable()) {
                     player.move(VPlayer.DIRECTION.UP);
                 }
                 break;
 
             case KeyEvent.VK_DOWN:
-                if (map.getTile(xMin, yMax).isPassable() && map.getTile(xMax,yMax).isPassable()) {
+                if (map.getTile(xMin, yMax).isPassable() && map.getTile(xMax, yMax).isPassable()) {
                     player.move(VPlayer.DIRECTION.DOWN);
                 }
                 break;
 
             case KeyEvent.VK_LEFT:
-                if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMin,yMax).isPassable()) {
+                if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMin, yMax).isPassable()) {
                     player.move(VPlayer.DIRECTION.LEFT);
                 }
                 break;
 
             case KeyEvent.VK_RIGHT:
-                if (map.getTile(xMax, yMin).isPassable() && map.getTile(xMax,yMax).isPassable()) {
+                if (map.getTile(xMax, yMin).isPassable() && map.getTile(xMax, yMax).isPassable()) {
                     player.move(VPlayer.DIRECTION.RIGHT);
                 }
                 break;
 
             case 0:
-                if(player.canLayBomb() && !map.getTile(xMin, yMin).hasBomb()) {
+                if (player.canLayBomb() && !map.getTile(xMin, yMin).hasBomb()) {
                     step = 0;
                     player.layBomb();
                     res.sound_layBomb.play();
-                    if(xMin < 1) xMin = 1;
-                    if(yMin < 1) yMin = 1;
+                    if (xMin < 1) xMin = 1;
+                    if (yMin < 1) yMin = 1;
                     effects.addEffect(new Bomb(player, map, effects, map.getBlockWidth(), map.getBlockHeight(), xMin, yMin, 10, 25), xMin * map.getBlockWidth(), yMin * map.getBlockHeight());
                 }
                 break;
