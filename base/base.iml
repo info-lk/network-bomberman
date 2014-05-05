@@ -7,10 +7,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" name="core" level="project" />
     <orderEntry type="library" name="NetworkLibrary" level="project" />
     <orderEntry type="library" name="jorbis-0.0.17" level="project" />
     <orderEntry type="library" name="kryonet-2.21-all" level="project" />
+=======
+    <orderEntry type="library" name="kryonet-2.21-all" level="project" />
+    <orderEntry type="library" name="tinysound-1.1.1" level="project" />
+    <orderEntry type="library" name="core" level="project" />
+    <orderEntry type="library" name="NetworkLibrary" level="project" />
+>>>>>>> 3dda1b053c0dc45c0128a49b2ecce9048c88a2a5
   </component>
 </module>
 

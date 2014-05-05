@@ -14,11 +14,6 @@ public class MainApplet extends PApplet {
         cont = new Controller(this);
     }
 
-    @Override
-    public boolean sketchFullScreen() {
-        return true;
-    }
-
     public void setup() {
         size(width, height);
         cont.setup();
@@ -37,6 +32,6 @@ public class MainApplet extends PApplet {
     }
 
     public static void main(String args[]) {
-        PApplet.main(new String[] { "--present", "game.MainApplet" });
+        PApplet.main(new String[]{"--present", "game.MainApplet"});
     }
 }

@@ -6,10 +6,7 @@ import kuusisto.tinysound.*;
 import tools.FileArrayReader;
 
 /**
- * Created with IntelliJ IDEA.
- * User: leobernard
- * Date: 24.03.14
- * Time: 19:53
+ * Diese Klasse enthält alle benötigten Ressourcen für das Spiel.
  */
 public class Resources {
     public PImage bedrock;
@@ -50,8 +47,8 @@ public class Resources {
         this.egg = canvas.loadImage("resources/egg.png");
         this.skull_creeper = canvas.loadImage("resources/skull_creeper.png");
         this.bg_blurry = canvas.loadImage("resources/bg_blurry.png");
-        this.SpeedItem = canvas.loadImage("resources/gold_boots_Item.png");
         this.eggItem = canvas.loadImage("resources/egg.png");
+        this.SpeedItem = canvas.loadImage("resources/gold_boots.png");
         this.superbombItem = canvas.loadImage("resources/apple_golden.png");
         this.waterbombItem = canvas.loadImage("resources/ender_pearl.png");
         this.shieldItem = canvas.loadImage("resources/leather_chestplate.png");
@@ -64,6 +61,15 @@ public class Resources {
         this.music_lobby = TinySound.loadMusic("resources/lobby_music.ogg");
         this.item_collect = TinySound.loadSound("resources/eat.ogg");
 
-        this.deathMessages = FileArrayReader.readLines("resources/death_messages.txt");
+        this.deathMessages = new String[]{
+                "You just died, bitch.",
+                "You is dead.",
+                "Death is just the beginning.",
+                "Dead.",
+                "You should take Revenge.",
+                "One bomb too much.",
+                "They killed you.",
+                "You can't do shit anymore."
+        };
     }
 }
