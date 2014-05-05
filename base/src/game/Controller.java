@@ -82,7 +82,7 @@ class Controller {
                 public void received(Connection connection, Object object) {
                     if (object instanceof ServerVariables) {
                         ServerVariables sV = (ServerVariables) object;
-                        if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.ID)) {
+                        if (sV.current.equals(ID)) {
                             ID = sV.ID;
                             System.out.println("Your Id is: " + ID);
                         }
@@ -92,13 +92,10 @@ class Controller {
                             lobbyScreen.setVisible(false);
                             player.setyPosition(32);
                             player.setxPosition(32);
-<<<<<<< HEAD
                         }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
+                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.ID)) {
                             System.out.println("HIIIII");
-=======
                         } else if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
->>>>>>> 88d103c74a578a23062f4560d95b69152c39d83f
                             enemies = new Player[sV.players.length - 1];
                             VPlayer[] copy = sV.players;
                             int pos = 0;
