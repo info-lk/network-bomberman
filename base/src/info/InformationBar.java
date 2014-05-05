@@ -9,13 +9,13 @@ public class InformationBar {
     private Player player;
     private float width;
 
-    public InformationBar(PApplet canvas, Player player, float windowWidth) {
+    public InformationBar(PApplet canvas, Player player) {
         this.canvas = canvas;
         this.player = player;
-        this.width = windowWidth;
+        this.width = canvas.width;
     }
 
-    public void draw(){
+    public void draw() {
         // Hintergrund
         canvas.fill(0);
         canvas.noStroke();

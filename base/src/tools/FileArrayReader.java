@@ -1,6 +1,7 @@
 package tools;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ public class FileArrayReader {
             bufferedReader.close();
             return lines.toArray(new String[lines.size()]);
         } catch (Exception ex) {
+            System.out.println(new File(filename).getAbsolutePath());
+            ex.printStackTrace();
             String[] res = new String[1];
             res[0] = "Failed to load file.";
             return res;

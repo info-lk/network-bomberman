@@ -23,13 +23,13 @@ import java.io.IOException;
 
 class Controller {
     private Client client; // Der Client
-    private PApplet canvas;
-    private Map map;
-    private Resources res;
-    private Effects effects;
-    private Player player;
-    private InformationBar infoBar;
-    private DeathScreen deathScreen;
+    private PApplet canvas; // Die Zeichenfläche für alle Grafiken
+    private Map map; // Die Karte, auf der die Spieler spielen können
+    private Resources res; // Die Resourcen, werden nur einmal initialisiert und dann an alle weiteren Klassen weitergegeben
+    private Effects effects; // Die auf der Zeichenfläche angezeigten Effekte, laufen unabhängig vom Rest des Spiels
+    private Player player; // Der aktuelle, lokale Spieler
+    private InformationBar infoBar; // Die schwarze Info-Bar oben im Spielfenster
+    private DeathScreen deathScreen; //
     private LobbyScreen lobbyScreen;
     private Player[] enemies;
     private int ID;
@@ -52,7 +52,7 @@ class Controller {
         client.getKryo().register(ClientVariables.class);
         client.getKryo().register(LobbyVariables.class);
         client.getKryo().register(network.Map.class);
-        map = new Map(canvas, res, 32, 32, 20, 50);
+        map = new Map(canvas, res, 16, 16, 20, 50);
 
         ID = -1;
 
@@ -60,13 +60,13 @@ class Controller {
         player.setxPosition(map.getBlockWidth());
         player.setyPosition(map.getBlockHeight());
 
-        infoBar = new InformationBar(canvas, player, canvas.width);
-        deathScreen = new DeathScreen(canvas, canvas.width, canvas.height);
+        infoBar = new InformationBar(canvas, player);
+        deathScreen = new DeathScreen(canvas, res);
 
         try {
             lobbyScreen.setVisible(true);
             lobbyScreen.setText("Searching for the server...");
-            String serveraddr = JOptionPane.showInputDialog(null, "Please enter the server's IP address", "Connect to server", JOptionPane.QUESTION_MESSAGE);
+            String serveraddr = JOptionPane.showInputDialog(null, "Please enter the server's IP address or press 'Cancel' to play in single player mode", "Connect to server", JOptionPane.QUESTION_MESSAGE);
 
             if (serveraddr == null) {
                 lobbyScreen.setVisible(false);
@@ -76,7 +76,6 @@ class Controller {
             System.out.println("Connecting to Host...");
             lobbyScreen.setText("Connecting to server at " + serveraddr);
             client.connect(5000, serveraddr, 11111, 22222);
-
 
             client.addListener(new Listener() {
                 public void received(Connection connection, Object object) {
@@ -92,13 +91,7 @@ class Controller {
                             lobbyScreen.setVisible(false);
                             player.setyPosition(32);
                             player.setxPosition(32);
-<<<<<<< HEAD
-                        }
-                        else if(sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
-                            System.out.println("HIIIII");
-=======
                         } else if (sV.current.equals(ServerVariables.CURRENT_INFORMATION.PLAYERS)) {
->>>>>>> 88d103c74a578a23062f4560d95b69152c39d83f
                             enemies = new Player[sV.players.length - 1];
                             VPlayer[] copy = sV.players;
                             int pos = 0;
@@ -186,12 +179,6 @@ class Controller {
         int xMax = (int) Math.floor((player.getXPosition() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
         int yMax = (int) Math.floor((player.getYPosition() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
 
-        int xMinS = (int) Math.floor((player.getXPosition() + player.getSwiftness() + (0.25 * map.getBlockWidth())) / map.getBlockWidth());
-        int yMinS = (int) Math.floor((player.getYPosition() + player.getSwiftness() + (0.25 * map.getBlockHeight())) / map.getBlockHeight());
-
-        int xMaxS = (int) Math.floor((player.getXPosition() + player.getSwiftness() + (0.75 * map.getBlockWidth())) / map.getBlockWidth());
-        int yMaxS = (int) Math.floor((player.getYPosition() + player.getSwiftness() + (0.75 * map.getBlockWidth())) / map.getBlockHeight());
-
         map.resetPlayerBooleans();
         map.getTile(xMin, yMin).setPlayer(this.player, this.res);
 
@@ -199,24 +186,32 @@ class Controller {
             case KeyEvent.VK_UP:
                 if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMax, yMin).isPassable()) {
                     player.move(VPlayer.DIRECTION.UP);
+                } else {
+                    player.setyPosition((yMax - 0.2) * map.getBlockHeight());
                 }
                 break;
 
             case KeyEvent.VK_DOWN:
                 if (map.getTile(xMin, yMax).isPassable() && map.getTile(xMax, yMax).isPassable()) {
                     player.move(VPlayer.DIRECTION.DOWN);
+                } else {
+                    player.setyPosition((yMin + 0.2) * map.getBlockHeight());
                 }
                 break;
 
             case KeyEvent.VK_LEFT:
                 if (map.getTile(xMin, yMin).isPassable() && map.getTile(xMin, yMax).isPassable()) {
                     player.move(VPlayer.DIRECTION.LEFT);
+                } else {
+                    player.setxPosition((xMax - 0.2) * map.getBlockWidth());
                 }
                 break;
 
             case KeyEvent.VK_RIGHT:
                 if (map.getTile(xMax, yMin).isPassable() && map.getTile(xMax, yMax).isPassable()) {
                     player.move(VPlayer.DIRECTION.RIGHT);
+                } else {
+                    player.setxPosition((xMin + 0.2) * map.getBlockWidth());
                 }
                 break;
 

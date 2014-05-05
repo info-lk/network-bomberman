@@ -9,11 +9,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="kryonet-2.21-all" level="project" />
     <orderEntry type="library" name="tinysound-1.1.1" level="project" />
-<<<<<<< HEAD
-    <orderEntry type="library" name="NetworkLibrary" level="project" />
-=======
     <orderEntry type="library" name="core" level="project" />
->>>>>>> 88d103c74a578a23062f4560d95b69152c39d83f
+    <orderEntry type="library" name="NetworkLibrary" level="project" />
   </component>
 </module>
 
