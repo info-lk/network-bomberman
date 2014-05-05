@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="game.jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ab75c23-6c89-42ed-b16b-6b01be794191" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base/src/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/game/Controller.java" afterPath="$PROJECT_DIR$/base/src/game/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/info/DeathScreen.java" afterPath="$PROJECT_DIR$/base/src/info/DeathScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/tools/FileArrayReader.java" afterPath="$PROJECT_DIR$/base/src/tools/FileArrayReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/info/InformationBar.java" afterPath="$PROJECT_DIR$/base/src/info/InformationBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/game/MainApplet.java" afterPath="$PROJECT_DIR$/base/src/game/MainApplet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/src/resources/Resources.java" afterPath="$PROJECT_DIR$/base/src/resources/Resources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/base.iml" afterPath="$PROJECT_DIR$/base/base.iml" />
+    <list default="true" id="7ab75c23-6c89-42ed-b16b-6b01be794191" name="Default" comment="Death messages hinzugefügt, Bugfixes und Kommentare">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="network-bomberman.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="7ab75c23-6c89-42ed-b16b-6b01be794191" time="1399273235413" ignored="false" />
+    <file path="/Dummy.txt" changelist="7ab75c23-6c89-42ed-b16b-6b01be794191" time="1399273394002" ignored="false" />
     <file path="/Main.java" changelist="7ab75c23-6c89-42ed-b16b-6b01be794191" time="1395424805127" ignored="false" />
     <file path="/MainPanel.java" changelist="7ab75c23-6c89-42ed-b16b-6b01be794191" time="1395693886119" ignored="false" />
     <file path="/Tile.java" changelist="7ab75c23-6c89-42ed-b16b-6b01be794191" time="1395850033285" ignored="false" />
@@ -662,7 +659,11 @@
       <created>1399211212193</created>
       <updated>1399211212193</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Death messages hinzugefügt, Bugfixes und Kommentare">
+      <created>1399273300008</created>
+      <updated>1399273300008</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -677,6 +678,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32618025" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -686,7 +688,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32618025" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -733,7 +734,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Death messages hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Death messages hinzugefügt, Bugfixes und Kommentare" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -751,6 +752,7 @@
     <MESSAGE value="Maps werden gezeichnet, zerstörbare Blöcke können zerstört werden, grundlegende Grafiken eingefügt" />
     <MESSAGE value="Resourcen werden nun richtig geladen" />
     <MESSAGE value="Death messages hinzugefügt" />
+    <MESSAGE value="Death messages hinzugefügt, Bugfixes und Kommentare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
